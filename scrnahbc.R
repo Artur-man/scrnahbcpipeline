@@ -3,6 +3,7 @@ library(BiocManager)
 install(c('Seurat',
           "SingleCellExperiment",
           "tidyverse",
+          "dplyr",
           "Matrix",
           "scales",
           "RCurl")
