@@ -1,7 +1,7 @@
 FROM nfcore/base:1.7
 LABEL author="artur.manukyan@umassmed.edu" 
 
-RUN conda env create -f /environment.yml && conda clean -a
+# RUN conda env create -f /environment.yml && conda clean -a
 
 RUN apt-get update 
 RUN apt install -y software-properties-common
