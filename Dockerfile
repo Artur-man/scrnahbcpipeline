@@ -1,5 +1,7 @@
-FROM ubuntu:16.04
-MAINTAINER Artur Manukyan <artur.manukyan@umassmed.edu>
+FROM nfcore/base:1.7
+LABEL author="artur.manukyan@umassmed.edu" 
+
+RUN conda env create -f /environment.yml && conda clean -a
 
 RUN apt-get update 
 RUN apt install -y software-properties-common
@@ -11,7 +13,9 @@ RUN apt-get dist-upgrade
 RUN apt-get -y install unzip libsqlite3-dev libbz2-dev libssl-dev python python-dev  liblzma-dev \
     python-pip git libxml2-dev software-properties-common wget tree vim sed make libncurses5-dev libncursesw5-dev\
     subversion g++ gcc gfortran libcurl4-openssl-dev curl zlib1g-dev build-essential libffi-dev  python-lzo \
-    libxml-libxml-perl jq r-base 
+    libxml-libxml-perl jq 
+    
+RUN apt-get -y install r-base 
 
 COPY scrnahbc.R /
 RUN Rscript scrnahbc.R
