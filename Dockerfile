@@ -1,21 +1,10 @@
 FROM nfcore/base:1.7
 LABEL author="artur.manukyan@umassmed.edu" 
 
-# RUN conda env create -f /environment.yml && conda clean -a
+RUN conda env create -f /environment.yml && conda clean -a
 
-RUN apt-get update 
-RUN apt install -y software-properties-common
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
-
-RUN apt-get -y upgrade
-RUN apt-get dist-upgrade
-RUN apt-get -y install unzip libsqlite3-dev libbz2-dev libssl-dev python python-dev  liblzma-dev \
-    python-pip git libxml2-dev software-properties-common wget tree vim sed make libncurses5-dev libncursesw5-dev\
-    subversion g++ gcc gfortran libcurl4-openssl-dev curl zlib1g-dev build-essential libffi-dev  python-lzo \
-    libxml-libxml-perl jq 
-    
-RUN apt-get -y install r-base 
+RUN conda install -c conda-forge r-base
+ENV PATH /opt/conda/envs/dolphinnext-kb-1.0/bin:/usr/local/bin/dolphin-tools/:$PATH
 
 COPY scrnahbc.R /
 RUN Rscript scrnahbc.R
