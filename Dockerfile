@@ -6,7 +6,6 @@ RUN apt install -y software-properties-common
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
 
-RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get dist-upgrade
 RUN apt-get -y install unzip libsqlite3-dev libbz2-dev libssl-dev python python-dev  liblzma-dev \
