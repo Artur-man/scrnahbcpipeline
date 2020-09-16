@@ -1,6 +1,7 @@
 FROM nfcore/base:1.7
 LABEL author="artur.manukyan@umassmed.edu" 
 
+COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
 
 RUN conda install -c conda-forge r-base
