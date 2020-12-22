@@ -9,9 +9,10 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD5
 RUN apt-get -y install apt-transport-https
 RUN apt-get -y update
 RUN apt-get -y install r-base r-base-dev
-RUN apt-get -y install libcurl4-openssl-dev libssl-dev libxml2-dev
+RUN apt-get -y install libcurl4-openssl-dev libssl-dev libxml2-dev 
 RUN apt-get -y install pandoc
 RUN apt-get -y install texlive-base texlive-latex-base texlive-fonts-recommended
+RUN apt-get -y install libfontconfig1-dev
 
 # install R packages
 COPY scrnahbc.R / 
