@@ -13,7 +13,7 @@ RUN apt-get -y install libcurl4-openssl-dev libssl-dev libxml2-dev
 RUN apt-get -y install pandoc
 RUN apt-get -y install texlive-base texlive-latex-base texlive-fonts-recommended
 RUN apt-get -y install libfontconfig1-dev libcairo2-dev
-RUN apt-get install libhdf5-dev
+RUN apt-get -y install libhdf5-dev
 
 # install R packages
 COPY scrnahbc.R / 
